@@ -1,45 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8" />
+<title>일주일 일정 확인기</title>
 </head>
 <body>
-    <header><h1> 제 사이트에 오신것을 환영합니다!</h1></header>
-    <hr>
-    
-    <main>
-    <h2>자기소개</h2>
-    <div style="background-color: bisque;">
-        <p>제 이름은 <mark>이승현 </mark> 입니다.<br>
-            저는 <span style="color: aqua;"> 스타듀벨리 </span> 게임을 좋아합니다 <br>
-            <img src="01.png" width="100" height="100" alt="자기소개 사진"> 
-            <meta name="description" content="스타듀벨리 진주 이벤트">
-            저는 <mark> 고양이</mark> 를 키웁니다. <br>
-            <img src="02.png" width="100" height="100" alt="고양이 사진">
-            <meta name="keyword" content="고양이">
-        </p>
-    </div>
-    </main>
-    <hr>
-    
-    <aside>
-    <h2> 관심분야</h2>
-    <div style="background-color: darkgray;">
-     바이올린 <br>
-     뜨개질 <br>
-     걷기 운동 <br>
-    </div>
-    <hr>
-    <h2> 앞으로의 목표</h2>
-    <div style="background-color: lightsteelblue;">
-     토익<br>
-     출석하기 <br>
-     책읽기 <br>
-    </div>
-    </aside>
-    <herf> week4.html </herf>
+
+
+<h2>11월 24일 ~ 11월 30일</h2>
+
+
+<table border="1" cellpadding="10">
+<tr>
+<th>월(1)</th>
+<th>화(2)</th>
+<th>수(3)</th>
+<th>목(4)</th>
+<th>금(5)</th>
+<th>토(6)</th>
+<th>일(7)</th>
+</tr>
+<tr>
+<td>11/24</td>
+<td>11/25</td>
+<td>11/26</td>
+<td>11/27</td>
+<td>11/28</td>
+<td>11/29</td>
+<td>11/30</td>
+</tr>
+</table>
+
+
+<!-- 색 변경 블록 -->
+<div style="margin-top:15px;">
+<strong>표 색상 변경:</strong>
+<button onclick="setTableColor('black')">기본(검정)</button>
+<button onclick="setTableColor('green')">녹색</button>
+<button onclick="setTableColor('pink')">분홍색</button>
+</div>
+
+
+
+
+<script>
+function setTableColor(color) {
+const table = document.querySelector('table');
+table.style.color = color;
+table.style.borderColor = color;
+table.querySelectorAll('td, th').forEach(cell => {
+cell.style.borderColor = color;
+});
+}
+
+
+
+
+// 요일별 일정
+const schedules = {
+1: '오전 수업이 있습니다',
+2: '과제 정리하는 날입니다',
+3: '오전 수업 + 병원 예약이 있습니다',
+4: '자습 시간입니다',
+5: '온라인 강의 제출 마감일입니다',
+6: '휴식하는 날입니다',
+7: '다음 주 준비하는 날입니다'
+};
+
+
+const input = prompt('몇요일 일정을 확인하시겠습니까? (월-1, 화-2, 수-3, 목-4, 금-5, 토-6, 일-7)');
+const day = Number(input);
+
+
+if (schedules[day]) {
+alert(schedules[day]);
+} else {
+alert('1~7 사이의 숫자를 입력해주세요');
+}
+</script>
 
 
 </body>
